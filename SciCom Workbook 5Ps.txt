@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LINCSS Digital Presentation Workbook</title>
+
+<style>
+:root {
+  --ink: #183042;
+  --ink-soft: #405563;
+  --paper: #fffdf7;
+  --cream: #f4eedf;
+  --line: #d5cdb9;
+
+  --people: #d05f44;
+  --place: #16877c;
+  --personal: #e1a72b;
+  --practice: #3478a4;
+  --profession: #62834f;
+
+  --white: #ffffff;
+  --shadow: 0 8px 24px rgba(24,48,66,.11);
+
+  font-family: Inter, Aptos, "Segoe UI", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink-soft);
+  background:
+    linear-gradient(rgba(24,48,66,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(24,48,66,.035) 1px, transparent 1px),
+    var(--cream);
+  background-size: 34px 34px;
+  line-height: 1.55;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/* HEADER */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 22px;
+  color: white;
+  background: linear-gradient(110deg, #183042, #204c5c 60%, #236f6b);
+  border-bottom: 5px solid var(--personal);
+  box-shadow: 0 4px 16px rgba(0,0,0,.15);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 3px solid var(--personal);
+  border-radius: 50%;
+  font-family: Georgia, serif;
+  font-weight: 900;
+}
+
+.brand h1 {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: 1.15rem;
+}
+
+.brand small {
+  color: #d9e5ea;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+button {
+  padding: 9px 12px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid rgba(255,255,255,.4);
+  border-radius: 8px;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(.96);
+}
+
+button.primary {
+  background: var(--personal);
+}
+
+button.danger {
+  color: white;
+  background: #9d4944;
+}
+
+/* LAYOUT */
+
+.layout {
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  max-width: 1400px;
+  margin: auto;
+}
+
+nav {
+  position: sticky;
+  top: 83px;
+  align-self: start;
+  height: calc(100vh - 83px);
+  padding: 20px 12px;
+  overflow-y: auto;
+  background: rgba(255,253,247,.96);
+  border-right: 1px solid var(--line);
+}
+
+nav a {
+  display: block;
+  padding: 10px 12px;
+  margin: 5px 0;
+  color: var(--ink);
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 750;
+}
+
+nav a:hover {
+  background: #eee8d9;
+}
+
+.progress-box {
+  padding: 14px;
+  margin-bottom: 18px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.progress-track {
+  height: 9px;
+  overflow: hidden;
+  background: #ded9cd;
+  border-radius: 99px;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(
+    90deg,
+    var(--people),
+    var(--personal),
+    var(--place),
+    var(--practice),
+    var(--profession)
+  );
+  transition: width .2s ease;
+}
+
+main {
+  width: min(980px, 100%);
+  padding: 28px;
+  margin: auto;
+}
+
+/* COVER */
+
+.hero {
+  padding: 55px;
+  color: white;
+  background: linear-gradient(120deg, #183042, #236f6b);
+  border: 6px solid white;
+  border-radius: 10px 30px 10px 30px;
+  box-shadow: var(--shadow);
+}
+
+.hero h2 {
+  margin: 0 0 12px;
+  font-family: Georgia, serif;
+  font-size: clamp(2.3rem, 6vw, 4.6rem);
+  line-height: 1;
+}
+
+.hero p {
+  max-width: 700px;
+  font-size: 1.08rem;
+}
+
+.five-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.p-chip {
+  padding: 14px 8px;
+  color: white;
+  border-radius: 8px 16px 8px 16px;
+  text-align: center;
+  font-weight: 800;
+}
+
+.people-bg { background: var(--people); }
+.place-bg { background: var(--place); }
+.personal-bg { background: var(--personal); color: var(--ink); }
+.practice-bg { background: var(--practice); }
+.profession-bg { background: var(--profession); }
+
+/* SECTIONS */
+
+section {
+  scroll-margin-top: 105px;
+  margin: 28px 0;
+}
+
+.section-heading {
+  padding: 20px 24px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-left: 10px solid var(--ink);
+  border-radius: 7px 18px 7px 18px;
+  box-shadow: var(--shadow);
+}
+
+.section-heading h2 {
+  margin: 0;
+  color: var(--ink);
+  font-family: Georgia, serif;
+}
+
+.section-heading.people { border-left-color: var(--people); }
+.section-heading.place { border-left-color: var(--place); }
+.section-heading.personal { border-left-color: var(--personal); }
+.section-heading.practice { border-left-color: var(--practice); }
+.section-heading.profession { border-left-color: var(--profession); }
+
+.lens {
+  padding: 18px 22px;
+  margin: 16px 0;
+  color: white;
+  border-radius: 8px 20px 8px 20px;
+}
+
+.lens.people { background: var(--people); }
+.lens.place { background: var(--place); }
+.lens.personal { background: var(--personal); color: var(--ink); }
+.lens.practice { background: var(--practice); }
+.lens.profession { background: var(--profession); }
+
+.card {
+  padding: 22px;
+  margin: 16px 0;
+  background: rgba(255,253,247,.98);
+  border: 1px solid var(--line);
+  border-radius: 8px 20px 8px 20px;
+  box-shadow: var(--shadow);
+}
+
+.card h3 {
+  margin-top: 0;
+  color: var(--ink);
+  font-family: Georgia, serif;
+}
+
+.field {
+  margin: 18px 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.prompt {
+  margin-bottom: 7px;
+  color: #526672;
+  font-size: .91rem;
+}
+
+input[type="text"],
+textarea,
+select {
+  width: 100%;
+  padding: 12px 13px;
+  color: var(--ink);
+  background: white;
+  border: 1px solid #bfc5c8;
+  border-radius: 8px;
+}
+
+textarea {
+  min-height: 105px;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+  outline: 3px solid rgba(225,167,43,.35);
+  border-color: var(--personal);
+}
+
+.check-group label {
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  padding: 7px 0;
+  font-weight: 500;
+}
+
+.audience-callout {
+  padding: 16px 18px;
+  margin: 16px 0;
+  background: #e9f2f4;
+  border-left: 6px solid var(--ink);
+  border-radius: 6px 14px 6px 14px;
+}
+
+.audience-callout strong {
+  color: var(--ink);
+}
+
+.save-status {
+  color: #dce8ec;
+  font-size: .82rem;
+  white-space: nowrap;
+}
+
+.privacy-note {
+  padding: 18px;
+  margin-top: 20px;
+  color: var(--ink);
+  background: #eef5ec;
+  border: 1px solid #b7cab1;
+  border-radius: 10px;
+}
+
+.footer-note {
+  padding: 20px;
+  margin: 30px 0;
+  text-align: center;
+  color: #5b6d77;
+}
+
+/* PRINT */
+
+@media print {
+  header,
+  nav,
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+  }
+
+  .layout {
+    display: block;
+  }
+
+  main {
+    max-width: none;
+    padding: 0;
+  }
+
+  .hero {
+    color: black;
+    background: white;
+    border: 2px solid black;
+    box-shadow: none;
+  }
+
+  .p-chip,
+  .lens {
+    color: black !important;
+    background: #eee !important;
+    border: 1px solid #999;
+  }
+
+  .card,
+  .section-heading {
+    break-inside: avoid;
+    box-shadow: none;
+  }
+
+  textarea,
+  input[type="text"] {
+    border: none;
+    padding: 3px 0;
+    min-height: auto;
+  }
+
+  section {
+    break-before: auto;
+  }
+}
+
+@media (max-width: 800px) {
+  header {
+    position: static;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .layout {
+    display: block;
+  }
+
+  nav {
+    position: static;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+  }
+
+  main {
+    padding: 16px;
+  }
+
+  .hero {
+    padding: 32px 22px;
+  }
+
+  .five-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">
+    <div class="brand-mark">5P</div>
+    <div>
+      <h1>LINCSS Digital Presentation Workbook</h1>
+      <small>Science + Audience + 5 Ps</small>
+    </div>
+  </div>
+
+  <div class="toolbar no-print">
+    <span class="save-status" id="saveStatus">Ready</span>
+    <button type="button" onclick="saveWorkbook()">Save</button>
+    <button type="button" onclick="downloadBackup()">Download Backup</button>
+    <button type="button" onclick="document.getElementById('importFile').click()">Import Backup</button>
+    <button type="button" class="primary" onclick="window.print()">Print / Save PDF</button>
+    <button type="button" class="danger" onclick="clearWorkbook()">Clear</button>
+    <input
+      id="importFile"
+      type="file"
+      accept=".json"
+      style="display:none"
+      onchange="importBackup(event)"
+    >
+  </div>
+</header>
+
+<div class="layout">
+
+<nav class="no-print">
+
+  <div class="progress-box">
+    <strong>Your Progress</strong>
+    <p><span id="progressNumber">0</span>% complete</p>
+    <div class="progress-track">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+  </div>
+
+  <a href="#welcome">Welcome</a>
+  <a href="#audience">Audience</a>
+  <a href="#people">1. People</a>
+  <a href="#place">2. Place</a>
+  <a href="#personal">3. Personal</a>
+  <a href="#practice">4. Practice</a>
+  <a href="#profession">5. Profession</a>
+  <a href="#story">Build Your Story</a>
+  <a href="#blueprint">Presentation Blueprint</a>
+  <a href="#check">Final Check</a>
+</nav>
+
+<main>
+
+<section id="welcome">
+
+  <div class="hero">
+    <h2>Build Your Science Story</h2>
+
+    <p>
+      Use the LINCSS 5 Ps to create a science presentation
+      that connects scientific ideas to people, places,
+      experiences, practices, possibilities—and your audience.
+    </p>
+
+    <div class="five-grid">
+      <div class="p-chip people-bg">People</div>
+      <div class="p-chip place-bg">Place</div>
+      <div class="p-chip personal-bg">Personal</div>
+      <div class="p-chip practice-bg">Practice</div>
+      <div class="p-chip profession-bg">Profession</div>
+    </div>
+  </div>
+
+  <div class="privacy-note">
+    <strong>Your work stays with you.</strong>
+    This webpage stores your responses in this browser on this
+    device. It does not send your answers anywhere. Use
+    <strong>Download Backup</strong> if you want to move your
+    work to another device, and use <strong>Print / Save PDF</strong>
+    when you want a finished copy.
+  </div>
+
+  <div class="card">
+    <h3>About Your Presentation</h3>
+
+    <div class="field">
+      <label for="studentName">Your name</label>
+      <input id="studentName" type="text" data-save>
+    </div>
+
+    <div class="field">
+      <label for="scienceTopic">Science topic</label>
+      <input id="scienceTopic" type="text" data-save>
+    </div>
+
+    <div class="field">
+      <label for="presentationLength">Presentation length</label>
+      <input
+        id="presentationLength"
+        type="text"
+        placeholder="Example: 5 minutes"
+        data-save
+      >
+    </div>
+  </div>
+
+</section>
+
+
+<section id="audience">
+
+  <div class="section-heading">
+    <h2>Start With Your Audience</h2>
+    <p>
+      A strong science presentation is not only about what
+      you know. It is about helping a particular audience
+      understand why the science matters.
+    </p>
+  </div>
+
+  <div class="card">
+
+    <div class="field">
+      <label for="aud1">Who is your audience?</label>
+      <textarea id="aud1" data-save></textarea>
+    </div>
+
+    <div class="field">
+      <label for="aud2">
+        What might your audience already know about this topic?
+      </label>
+      <textarea id="aud2" data-save></textarea>
+    </div>
+
+    <div class="field">
+      <label for="aud3">
+        What might your audience care about?
+      </label>
+      <textarea id="aud3" data-save></textarea>
+    </div>
+
+    <div class="field">
+      <label for="aud4">
+        What experiences, questions, concerns, or interests
+        might your audience bring?
+      </label>
+      <textarea id="aud4" data-save></textarea>
+    </div>
+
+    <div class="field">
+      <label for="aud5">
+        What do you want your audience to understand,
+        feel, question, or do after your presentation?
+      </label>
+      <textarea id="aud5" data-save></textarea>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="people">
+
+  <div class="section-heading people">
+    <h2>1. People</h2>
+    <p>Science affects real people and communities.</p>
+  </div>
+
+  <div class="lens people">
+    <strong>Guiding question:</strong>
+    How does this science connect to real people and authentic communities?
+  </div>
+
+  <div class="card">
+
+    <div class="field">
+      <label for="people1">
+        Which people or communities are connected to your topic?
+      </label>
+      <textarea id="people1" data-save></textarea>
+    </div>
+
+    <div class="field">
+      <label for="people2">
+        How are these people or communities connected?
+      </label>
+      <textarea id="people2" data-save></textarea>
+    </div>
+
+    <div class="field">
+      <label for="people3">
+        What perspectives, experiences, knowledge, or stories
+        could you include?
+      </label>
+      <textarea id="people3" data-save></textarea>
+    </div>
+
+    <div class="audience-callout">
+      <strong>Audience Lens:</strong>
+      Which people or community stories would be especially
+      meaningful to your audience?
+    </div>
+
+    <div class="field">
+      <label for="people4">Your response</label>
+      <textarea id="people4" data-save></textarea>
+    </div>
+
+    <div class="field">
+      <label for="people5">
+        Complete the sentence: My audience should understand
+        that this science matters to people because...
+      </label>
+      <textarea id="people5" data-save></textarea>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="place">
+
+  <div class="section-heading place">
+    <h2>2. Place</h2>
+    <p>Science happens somewhere.</p>
+  </div>
+
+  <div class="lens place">
+    <strong>Guiding question:</strong>
+    How does location, geography, environment, or ecology shape this science?
+  </div>
+
+  <div class="card">
+
+    <div class="field">
+      <label for="place1">
+        What place or location is connected to your topic?
+      </label>
+      <textarea id="place1" data-save></textarea>
+    </div>
+
+    <div class="field">
+      <label for="place2">
+        What is important about this location?
+      </label>
+      <textarea id="place2" data-save></textarea>
+    </div>
+
+    <div class="field">
+      <label for="place3">
+        Would the science, problem, or phenomenon look
+        different somewhere else? Why?
+      </label>
+      <textarea id="place3" data-save></textarea>
+    </div>
+
+    <div class="audience-callout">
+      <strong>Audience Lens:</strong>
+      Is there a place your audience knows or cares about
+      that could make this science more meaningful?
+    </div>
+
+    <div class="field">
+      <label for="place4">Your response</label>
+      <textarea id="place4" data-save></textarea>
+    </div>
+
+    <div class="field">
+      <label for="place5">
+        Complete the sentence: Understanding this place
+        helps my audience understand the science because...
+      </label>
+      <textarea id="place5" data-save></textarea>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="personal">
+
+  <div class="section-heading personal">
+    <h2>3. Personal</h2>
+    <p>People bring knowledge and experience to science.</p>
+  </div>
+
+  <div class="lens personal">
+    <strong>Guiding question:</strong>
+    How do experiences, interests, identities, values, or
+    prior knowledge connect to this topic?
+  </div>
+
+  <div class="card">
+
+    <div class="field">
+      <label for="personal1">
+        What have you experienced, noticed, learned, or
+        wondered about that connects to this topic?
+      </label>
+      <textarea id="personal1" data-save></textarea>
+    </div>
+
+    <div class="field">
+      <label for="personal2">
+        What might your audience have experienced,
+        noticed, or wondered about?
+      </label>
+      <textarea id="personal2" data-save></textarea>
+    </div>
+
+    <div class="field">
+      <label for="personal3">
+        What question could invite your audience into the topic?
+      </label>
+      <textarea id="personal3" data-save></textarea>
+    </div>
+
+    <div class="audience-callout">
+      <strong>Audience Lens:</strong>
+      What can you invite your audience to remember,
+      notice, compare, question, or reflect on?
+    </div>
+
+    <div class="field">
+      <label for="personal4">Your response</label>
+      <textarea id="personal4" data-save></textarea>
+    </div>
+
+    <div class="field">
+      <label for="personal5">
+        I want my audience to see a connection between
+        this science and...
+      </label>
+      <textarea id="personal5" data-save></textarea>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="practice">
+
+  <div class="section-heading practice">
+    <h2>4. Practice</h2>
+    <p>Science is something people do.</p>
+  </div>
+
+  <div class="lens practice">
+    <strong>Guiding question:</strong>
+    How is knowledge in this field constructed, tested,
+    questioned, and applied?
+  </div>
+
+  <div class="card">
+
+    <div class="field">
+      <label for="practice1">
+        What scientific practice, method, or tool is used
+        to investigate this topic?
+      </label>
+      <textarea id="practice1" data-save></textarea>
+    </div>
+
+    <div class="field">
+      <label for="practice2">
+        What do scientists use it to find out?
+      </label>
+      <textarea id="practice2" data-save></textarea>
+    </div>
+
+    <div class="field">
+      <label for="practice3">
+        What evidence, data, experiment, observation, or
+        model could you show your audience?
+      </label>
+      <textarea id="practice3" data-save></textarea>
+    </div>
+
+    <div class="field">
+      <label for="practice4">
+        What limitation, uncertainty, disagreement, or
+        unanswered question should your audience know about?
+      </label>
+      <textarea id="practice4" data-save></textarea>
+    </div>
+
+    <div class="audience-callout">
+      <strong>Audience Lens:</strong>
+      What does your audience need to understand about
+      the evidence without being overwhelmed by technical details?
+    </div>
+
+    <div class="field">
+      <label for="practice5">Your response</label>
+      <textarea id="practice5" data-save></textarea>
+    </div>
+
+    <div class="field">
+      <label for="practice6">
+        What graph, image, demonstration, comparison,
+        or example could make the evidence clearer?
+      </label>
+      <textarea id="practice6" data-save></textarea>
+    </div>
+
+    <div class="field">
+      <label for="practice7">
+        We know what we know about this topic because...
+      </label>
+      <textarea id="practice7" data-save></textarea>
+    </div>
+
+    <div class="field">
+      <label for="practice8">
+        But we still need to ask...
+      </label>
+      <textarea id="practice8" data-save></textarea>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="profession">
+
+  <div class="section-heading profession">
+    <h2>5. Profession</h2>
+    <p>Science creates pathways and possibilities.</p>
+  </div>
+
+  <div class="lens profession">
+    <strong>Guiding question:</strong>
+    Who does this work, what pathways lead there, and
+    what possibilities could this science create?
+  </div>
+
+  <div class="card">
+
+    <div class="field">
+      <label for="profession1">
+        What profession or career is connected to your topic?
+      </label>
+      <textarea id="profession1" data-save></textarea>
+    </div>
+
+    <div class="field">
+      <label for="profession2">
+        What does someone in this profession actually do?
+      </label>
+      <textarea id="profession2" data-save></textarea>
+    </div>
+
+    <div class="field">
+      <label for="profession3">
+        What skills, interests, education, or experiences
+        connect to this work?
+      </label>
+      <textarea id="profession3" data-save></textarea>
+    </div>
+
+    <div class="field">
+      <label for="profession4">
+        What other career, community role, or pathway connects
+        to this science that people might not immediately think about?
+      </label>
+      <textarea id="profession4" data-save></textarea>
+    </div>
+
+    <div class="audience-callout">
+      <strong>Audience Lens:</strong>
+      Which career or pathway might surprise or interest
+      your audience? How could audience members imagine
+      themselves participating in this work?
+    </div>
+
+    <div class="field">
+      <label for="profession5">Your response</label>
+      <textarea id="profession5" data-save></textarea>
+    </div>
+
+    <div class="field">
+      <label for="profession6">
+        Someone interested in this science could use it to...
+      </label>
+      <textarea id="profession6" data-save></textarea>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="story">
+
+  <div class="section-heading">
+    <h2>Build Your Science Story</h2>
+    <p>
+      The five Ps do not have to receive equal time.
+      Choose the connections that create the strongest
+      story for your particular audience.
+    </p>
+  </div>
+
+  <div class="card">
+
+    <h3>Which Ps create your strongest connections?</h3>
+
+    <div class="check-group">
+      <label>
+        <input type="checkbox" id="pickPeople" data-save>
+        People
+      </label>
+
+      <label>
+        <input type="checkbox" id="pickPlace" data-save>
+        Place
+      </label>
+
+      <label>
+        <input type="checkbox" id="pickPersonal" data-save>
+        Personal
+      </label>
+
+      <label>
+        <input type="checkbox" id="pickPractice" data-save>
+        Practice
+      </label>
+
+      <label>
+        <input type="checkbox" id="pickProfession" data-save>
+        Profession
+      </label>
+    </div>
+
+    <div class="field">
+      <label for="story1">
+        What do you most want your audience to understand?
+      </label>
+      <textarea id="story1" data-save></textarea>
+    </div>
+
+    <div class="field">
+      <label for="story2">
+        Why should this science matter to this audience?
+      </label>
+      <textarea id="story2" data-save></textarea>
+    </div>
+
+    <div class="field">
+      <label for="story3">
+        Complete the sentence: For my audience, this
+        presentation will show how...
+      </label>
+      <textarea id="story3" data-save></textarea>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="blueprint">
+
+  <div class="section-heading">
+    <h2>Your Presentation Blueprint</h2>
+    <p>
+      Turn your 5 Ps thinking into one connected science story.
+    </p>
+  </div>
+
+  <div class="card">
+
+    <div class="field">
+      <label for="blue1">1. Hook</label>
+      <div class="prompt">
+        What question, image, observation, story, surprising
+        finding, place, or problem will give your audience
+        a reason to care?
+      </div>
+      <textarea id="blue1" data-save></textarea>
+    </div>
+
+    <div class="field">
+      <label for="blue2">2. Connection</label>
+      <div class="prompt">
+        What might your audience already know, recognize,
+        experience, or care about?
+      </div>
+      <textarea id="blue2" data-save></textarea>
+    </div>
+
+    <div class="field">
+      <label for="blue3">3. Science</label>
+      <div class="prompt">
+        What scientific concept or phenomenon does your
+        audience need to understand?
+      </div>
+      <textarea id="blue3" data-save></textarea>
+    </div>
+
+    <div class="field">
+      <label for="blue4">4. Context</label>
+      <div class="prompt">
+        What people, places, communities, or experiences
+        give this science meaning?
+      </div>
+      <textarea id="blue4" data-save></textarea>
+    </div>
+
+    <div class="field">
+      <label for="blue5">5. Evidence</label>
+      <div class="prompt">
+        What data, experiment, observation, model, or other
+        evidence will you show? How will you make it understandable?
+      </div>
+      <textarea id="blue5" data-save></textarea>
+    </div>
+
+    <div class="field">
+      <label for="blue6">6. Possibility</label>
+      <div class="prompt">
+        What future question, solution, career, community
+        application, or next step could matter to your audience?
+      </div>
+      <textarea id="blue6" data-save></textarea>
+    </div>
+
+    <div class="field">
+      <label for="blue7">7. Closing</label>
+      <div class="prompt">
+        If your audience remembers only one idea,
+        what do you want it to be?
+      </div>
+      <textarea id="blue7" data-save></textarea>
+    </div>
+
+    <div class="field">
+      <label for="blue8">
+        What question do you want your audience to leave asking?
+      </label>
+      <textarea id="blue8" data-save></textarea>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="check">
+
+  <div class="section-heading">
+    <h2>Final LINCSS + Audience Check</h2>
+  </div>
+
+  <div class="card">
+
+    <div class="check-group">
+
+      <label>
+        <input type="checkbox" id="check1" data-save>
+        I can clearly describe who my audience is.
+      </label>
+
+      <label>
+        <input type="checkbox" id="check2" data-save>
+        I considered what my audience might already know,
+        value, experience, or wonder about.
+      </label>
+
+      <label>
+        <input type="checkbox" id="check3" data-save>
+        My opening gives this audience a reason to care.
+      </label>
+
+      <label>
+        <input type="checkbox" id="check4" data-save>
+        I explain the science clearly without assuming
+        too much prior knowledge.
+      </label>
+
+      <label>
+        <input type="checkbox" id="check5" data-save>
+        I show why the topic matters to real people or communities.
+      </label>
+
+      <label>
+        <input type="checkbox" id="check6" data-save>
+        I connect the science to a meaningful place or context.
+      </label>
+
+      <label>
+        <input type="checkbox" id="check7" data-save>
+        I invite the audience to connect their own knowledge,
+        interests, experiences, or questions.
+      </label>
+
+      <label>
+        <input type="checkbox" id="check8" data-save>
+        I explain how we know without overwhelming the audience.
+      </label>
+
+      <label>
+        <input type="checkbox" id="check9" data-save>
+        I acknowledge uncertainty, limitations, questions,
+        or different approaches where appropriate.
+      </label>
+
+      <label>
+        <input type="checkbox" id="check10" data-save>
+        I introduce a career, pathway, practitioner,
+        or future possibility.
+      </label>
+
+      <label>
+        <input type="checkbox" id="check11" data-save>
+        My examples, language, visuals, and evidence make
+        sense for my audience.
+      </label>
+
+      <label>
+        <input type="checkbox" id="check12" data-save>
+        The 5 Ps help me tell one connected story rather
+        than five separate mini-presentations.
+      </label>
+
+    </div>
+
+  </div>
+
+  <div class="card">
+    <h3>My Final Science Story</h3>
+
+    <div class="field">
+      <label for="final1">Who is my audience?</label>
+      <textarea id="final1" data-save></textarea>
+    </div>
+
+    <div class="field">
+      <label for="final2">
+        What do I want them to walk away understanding?
+      </label>
+      <textarea id="final2" data-save></textarea>
+    </div>
+
+    <div class="field">
+      <label for="final3">
+        Why should this science matter to them?
+      </label>
+      <textarea id="final3" data-save></textarea>
+    </div>
+
+    <div class="field">
+      <label for="final4">
+        Write your final science story in 1–3 sentences.
+      </label>
+      <textarea id="final4" data-save></textarea>
+    </div>
+
+  </div>
+
+</section>
+
+<div class="footer-note">
+  <strong>Science + Audience + 5 Ps = A Meaningful Science Story</strong>
+</div>
+
+</main>
+</div>
+
+
+<script>
+
+const STORAGE_KEY = "LINCSS_PRESENTATION_WORKBOOK_V1";
+
+const saveFields = () =>
+  Array.from(document.querySelectorAll("[data-save]"));
+
+
+function collectData() {
+
+  const data = {
+    savedAt: new Date().toISOString(),
+    fields: {}
+  };
+
+  saveFields().forEach(field => {
+
+    if (field.type === "checkbox") {
+      data.fields[field.id] = field.checked;
+    } else {
+      data.fields[field.id] = field.value;
+    }
+
+  });
+
+  return data;
+}
+
+
+function applyData(data) {
+
+  if (!data || !data.fields) return;
+
+  saveFields().forEach(field => {
+
+    if (!(field.id in data.fields)) return;
+
+    if (field.type === "checkbox") {
+      field.checked = Boolean(data.fields[field.id]);
+    } else {
+      field.value = data.fields[field.id] ?? "";
+    }
+
+  });
+
+  updateProgress();
+}
+
+
+function saveWorkbook(showMessage = true) {
+
+  const data = collectData();
+
+  localStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify(data)
+  );
+
+  if (showMessage) {
+    showSaveStatus("Saved on this device");
+  }
+
+  updateProgress();
+}
+
+
+function loadWorkbook() {
+
+  const raw = localStorage.getItem(STORAGE_KEY);
+
+  if (!raw) {
+    updateProgress();
+    return;
+  }
+
+  try {
+
+    const data = JSON.parse(raw);
+
+    applyData(data);
+
+    showSaveStatus("Previous work restored");
+
+  } catch (error) {
+
+    console.error("Could not restore workbook.", error);
+
+  }
+}
+
+
+let autosaveTimer = null;
+
+function scheduleAutosave() {
+
+  showSaveStatus("Saving…");
+
+  clearTimeout(autosaveTimer);
+
+  autosaveTimer = setTimeout(() => {
+    saveWorkbook(false);
+    showSaveStatus("Saved automatically");
+  }, 500);
+
+}
+
+
+function showSaveStatus(message) {
+
+  const el = document.getElementById("saveStatus");
+
+  el.textContent = message;
+
+  clearTimeout(el._timer);
+
+  el._timer = setTimeout(() => {
+    el.textContent = "Ready";
+  }, 2500);
+
+}
+
+
+function updateProgress() {
+
+  const fields = saveFields();
+
+  let completed = 0;
+
+  fields.forEach(field => {
+
+    if (field.type === "checkbox") {
+
+      if (field.checked) completed++;
+
+    } else {
+
+      if (field.value.trim().length > 0) completed++;
+
+    }
+
+  });
+
+  const percent =
+    fields.length === 0
+      ? 0
+      : Math.round((completed / fields.length) * 100);
+
+  document.getElementById("progressNumber").textContent = percent;
+
+  document.getElementById("progressBar").style.width =
+    percent + "%";
+
+}
+
+
+function downloadBackup() {
+
+  const data = collectData();
+
+  const studentName =
+    document.getElementById("studentName").value.trim()
+    || "Student";
+
+  const topic =
+    document.getElementById("scienceTopic").value.trim()
+    || "Science";
+
+  const safeName =
+    (studentName + "_" + topic)
+      .replace(/[^a-z0-9_-]+/gi, "_");
+
+  const blob = new Blob(
+    [JSON.stringify(data, null, 2)],
+    { type: "application/json" }
+  );
+
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+
+  a.href = url;
+
+  a.download =
+    "LINCSS_Workbook_Backup_" + safeName + ".json";
+
+  document.body.appendChild(a);
+
+  a.click();
+
+  a.remove();
+
+  URL.revokeObjectURL(url);
+
+  showSaveStatus("Backup downloaded");
+}
+
+
+function importBackup(event) {
+
+  const file = event.target.files[0];
+
+  if (!file) return;
+
+  const reader = new FileReader();
+
+  reader.onload = function() {
+
+    try {
+
+      const data = JSON.parse(reader.result);
+
+      applyData(data);
+
+      saveWorkbook(false);
+
+      showSaveStatus("Backup imported");
+
+    } catch (error) {
+
+      alert(
+        "That file does not appear to be a valid LINCSS workbook backup."
+      );
+
+    }
+
+  };
+
+  reader.readAsText(file);
+
+  event.target.value = "";
+}
+
+
+function clearWorkbook() {
+
+  const confirmed = confirm(
+    "Clear every response saved in this workbook on this device?\n\n" +
+    "This cannot be undone unless you previously downloaded a backup."
+  );
+
+  if (!confirmed) return;
+
+  localStorage.removeItem(STORAGE_KEY);
+
+  saveFields().forEach(field => {
+
+    if (field.type === "checkbox") {
+      field.checked = false;
+    } else {
+      field.value = "";
+    }
+
+  });
+
+  updateProgress();
+
+  showSaveStatus("Workbook cleared");
+}
+
+
+saveFields().forEach(field => {
+
+  field.addEventListener("input", scheduleAutosave);
+
+  field.addEventListener("change", scheduleAutosave);
+
+});
+
+
+window.addEventListener("load", loadWorkbook);
+
+</script>
+
+</body>
+</html>
